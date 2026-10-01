@@ -1,0 +1,405 @@
+Last login: Fri Aug 21 18:07:39 on ttys000
+arehart@Mac-mini-3 ~ % xcrun simctl shutdown all
+xcrun: error: unable to find utility "simctl", not a developer tool or in PATH
+arehart@Mac-mini-3 ~ % xcrun simctl delete unavailable
+xcrun: error: unable to find utility "simctl", not a developer tool or in PATH
+arehart@Mac-mini-3 ~ % xcrun                          
+Usage: xcrun [options] <tool name> ... arguments ...
+
+Find and execute the named command line tool from the active developer
+directory.
+
+The active developer directory can be set using `xcode-select`, or via the
+DEVELOPER_DIR environment variable. See the xcrun and xcode-select manual
+pages for more information.
+
+Options:
+  -h, --help                  show this help message and exit
+  --version                   show the xcrun version
+  -v, --verbose               show verbose logging output
+  --sdk <sdk name>            find the tool for the given SDK name
+  --toolchain <name>          find the tool for the given toolchain
+  -l, --log                   show commands to be executed (with --run)
+  -f, --find                  only find and print the tool path
+  -r, --run                   find and execute the tool (the default behavior)
+  -n, --no-cache              do not use the lookup cache
+  -k, --kill-cache            invalidate all existing cache entries
+  --show-sdk-path             show selected SDK install path
+  --show-sdk-version          show selected SDK version
+  --show-sdk-build-version    show selected SDK build version
+  --show-sdk-platform-path    show selected SDK platform path
+  --show-sdk-platform-version show selected SDK platform version
+  --show-toolchain-path       show selected SDK preferred toolchain path
+arehart@Mac-mini-3 ~ % xcrun simctl delete unavailable
+xcrun: error: unable to find utility "simctl", not a developer tool or in PATH
+arehart@Mac-mini-3 ~ % xcrun simctl shutdown all      
+xcrun: error: unable to find utility "simctl", not a developer tool or in PATH
+arehart@Mac-mini-3 ~ % sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+Password:
+xcode-select: error: invalid developer directory '/Applications/Xcode.app/Contents/Developer'
+arehart@Mac-mini-3 ~ % ls /Applications | grep -i xcode
+
+Cleaner for Xcode.app
+arehart@Mac-mini-3 ~ % 
+  [Restored Sep 2, 2026 at 17:21:56]
+Last login: Wed Sep  2 16:59:09 on console
+Restored session: Sat Aug 22 13:15:58 CDT 2026
+arehart@Mac-mini-3 ~ % bash 
+bash-5.3$ rm -rf ~/Library/Metadata/CoreSpotlight/
+bash-5.3$ 
+  [Restored Sep 3, 2026 at 09:22:38]
+Last login: Wed Sep  2 17:23:37 on console
+Restored session: Wed Sep  2 17:22:33 CDT 2026
+arehart@Mac-mini-3 ~ % brew install displayplacer
+==> Auto-updating Homebrew...
+Adjust how often this is run with `$HOMEBREW_AUTO_UPDATE_SECS` or disable with
+`$HOMEBREW_NO_AUTO_UPDATE=1`. Hide these hints with `$HOMEBREW_NO_ENV_HINTS=1` (see `man brew`).
+==> Downloading Homebrew API data
+✔︎ JSON API packages.tahoe.jws.json                  Downloaded   15.5MB/ 15.5MB
+==> Auto-updated Homebrew!
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> New Formulae
+amy: Nostr client from the Amethyst project
+atomgit-cli: Command-line interface for AtomGit
+bashly: Bash command-line framework and CLI generator
+betterglobekey: Reworked Globe key for faster input source switching
+deja-vu: Local searchable memory over the session histories of coding agents
+ffmpeg@8: Play, record, convert, and stream select audio and video codecs
+fx-agent: Tiny, open, embeddable, native coding agent
+gffcompare: Compare, merge and annotate GFF/GTF transcript files
+glci: Run GitLab CI/CD pipelines locally
+go@1.26: Open source programming language to build simple/reliable/efficient software
+gpk: TUI and CLI that unifies every package manager on the system
+jarl: Just another R linter
+jcode: AI coding agent harness for the terminal
+leaves: Text-mode disk usage visualization utility
+linecast: Weather, tides, the sun, the moon, and maps, drawn for the terminal
+mysql-client@9.7: Open source relational database management system
+mysql@9.7: Open source relational database management system
+nub: Fast TypeScript runtime and package manager that augments Node
+obscura: Headless browser for AI agents and web scraping
+pixivbiu: Pixiv client. Easy to search, browse, and download artworks
+plink-ng: Whole-genome association analysis toolset (PLINK 2.0)
+pythia: Monte Carlo event generator
+readwise-cli: Command-line interface for Readwise and Reader
+robotcode: Ultimate Robot Framework Toolset
+rtp2httpd: Multicast RTP/RTSP-to-HTTP converter with web player and status dashboard
+sabiql: Fast, safe-by-design, driverless, Vim-first DB TUI with ER diagrams
+shpool: Persistent shell session manager
+skillspector: Security scanner for AI agent skills
+speedtest-go: CLI and Go API to Test Internet Speed using speedtest.net
+tailcat: Netcat-like tool over Tailscale's data plane, without its control plane
+tele: Keyboard-first Telegram client for the terminal, written in Go
+uavs3d: AVS3 decoder which supports AVS3-P2 baseline profile
+virglrenderer: VirGL virtual OpenGL renderer
+xeve: Very fast Essential Video Encoder, MPEG-5 EVC (Essential Video Coding)
+==> New Casks
+afterglow: Classic After Dark screen savers emulator
+airstats: Menu bar system monitor
+amethyst-nostr: Nostr client
+anarlog: AI notepad for meetings
+android-performance-analyzer: Toolchain for profiling apps and games
+arm-performix: Performance analysis toolkit for Arm server and cloud environments
+atlas-app: Source control for coding agents
+bifrost: Samsung firmware downloader
+bramble: Password manager
+channel-works: AI Business OS for customer support, analytics, collaboration, and marketing
+clawd-on-desk: Desktop pet that reacts to AI coding agents
+crisp: Menu bar display manager: DDC brightness, HiDPI, presets, virtual displays
+davit: GUI for Apple's container CLI
+db-pro: Query, explore, and manage your databases with built-in AI
+diskboard: Disk benchmark and S.M.A.R.T. health monitor
+dockdoor-pro: Dock replacement with widgets, profiles and window previews
+droppy: Drag and drop file shelf
+font-asap-sharp
+font-nevermind
+font-paper-mono
+font-suite
+font-valley-sans
+ghost-downloader: Cross-platform multithreaded download manager
+keychron-assistant: Companion app for Keychron Launcher's Quick Start feature
+keyty: Keyboard and mouse input visualizer
+leigod: Game network accelerator
+mac-performance-monitor: Menu bar performance monitor with recorded history and analytics
+macshot-offline: Screenshot and screen recording tool without upload integrations
+markviewer: Minimal markdown editor
+monet: Multi-engine mission control for coding agents
+motrix@beta: Open-source download manager
+nativ: Run AI models locally
+pixcake: AI photo editing software for commercial photography
+quarkclouddrive: Cloud storage and file management platform
+riverscript: AI platform for recording and transcribing system audio from any app
+sjmcl: Minecraft launcher built with the community
+skills-manager: Manage, sync, and organise AI agent skills across coding tools
+tabularis: Lightweight database management tool
+tcp-viewer: Packet capture and inspection tool
+thoughtdag: Visual workspace for editable LLM context graphs
+token-monitor: Monitor token usage, costs, and limits across AI coding tools
+tone3000: Amp modeling plug-in for Neural Amp Modeler captures and impulse responses
+triggerflo: Focus timer and Kanban board for tracking tasks
+unsloth: Desktop application for Unsloth Studio
+waku: Native desktop app for coding agents
+
+You have 125 outdated formulae and 5 outdated casks installed.
+
+Warning: You are using macOS on Intel x86_64.
+We do not provide support for this platform (as-of September 2026, announced August 2025).
+
+Apple have dropped Intel x86_64 support in macOS Golden Gate (27).
+GitHub Actions are dropping macOS Intel x86_64 runners in 2027.
+Homebrew is a non-profit project run entirely by volunteers, not employees.
+If the biggest companies in the world cannot support macOS Intel x86_64
+any longer, sadly neither can we.
+
+You will have better luck with MacPorts which still supports macOS Intel x86_64:
+  https://www.macports.org
+==> Downloading bottle manifests
+✔︎ Bottle Manifest displayplacer (1.4.0)             Downloaded    8.6KB/  8.6KB
+==> Would install 1 formula:
+displayplacer
+==> Fetching downloads for: displayplacer
+✔︎ Bottle displayplacer (1.4.0)                      Downloaded   15.6KB/ 15.6KB
+==> Pouring displayplacer--1.4.0.sonoma.bottle.tar.gz
+🍺  /usr/local/Cellar/displayplacer/1.4.0: 6 files, 58.9KB
+arehart@Mac-mini-3 ~ % bash
+bash-5.3$ displayplacer list
+Persistent screen id: 0B524B77-F683-4945-8600-2E4830D3BC30
+Contextual screen id: 1
+Serial screen id: s1346408518
+Type: 27 inch external screen
+Resolution: 2560x1440
+Hertz: 144
+Color Depth: 8
+Scaling: off
+Origin: (0,0) - main display
+Rotation: 0
+Enabled: true
+Resolutions for rotation 0:
+  mode 0: res:800x600 hz:144 color_depth:8
+  mode 1: res:800x600 hz:144 color_depth:8 scaling:on
+  mode 2: res:800x600 hz:120 color_depth:8 scaling:on
+  mode 3: res:800x600 hz:120 color_depth:8
+  mode 4: res:800x600 hz:75 color_depth:8
+  mode 5: res:800x600 hz:72 color_depth:8
+  mode 6: res:800x600 hz:60 color_depth:8 scaling:on
+  mode 7: res:800x600 hz:60 color_depth:8
+  mode 8: res:800x600 hz:56 color_depth:8
+  mode 9: res:960x540 hz:144 color_depth:8 scaling:on
+  mode 10: res:960x540 hz:120 color_depth:8 scaling:on
+  mode 11: res:960x540 hz:60 color_depth:8 scaling:on
+  mode 12: res:960x540 hz:50 color_depth:8 scaling:on
+  mode 13: res:1024x576 hz:144 color_depth:8 scaling:on
+  mode 14: res:1024x576 hz:144 color_depth:8
+  mode 15: res:1024x576 hz:120 color_depth:8 scaling:on
+  mode 16: res:1024x576 hz:120 color_depth:8
+  mode 17: res:1024x576 hz:60 color_depth:8 scaling:on
+  mode 18: res:1024x576 hz:60 color_depth:8
+  mode 19: res:1024x768 hz:144 color_depth:8
+  mode 20: res:1024x768 hz:120 color_depth:8
+  mode 21: res:1024x768 hz:75 color_depth:8
+  mode 22: res:1024x768 hz:70 color_depth:8
+  mode 23: res:1024x768 hz:60 color_depth:8
+  mode 24: res:1280x720 hz:144 color_depth:8
+  mode 25: res:1280x720 hz:144 color_depth:8 scaling:on
+  mode 26: res:1280x720 hz:120 color_depth:8 scaling:on
+  mode 27: res:1280x720 hz:120 color_depth:8
+  mode 28: res:1280x720 hz:60 color_depth:8
+  mode 29: res:1280x720 hz:60 color_depth:8 scaling:on
+  mode 30: res:1280x720 hz:50 color_depth:8
+  mode 31: res:1280x960 hz:144 color_depth:8
+  mode 32: res:1280x960 hz:120 color_depth:8
+  mode 33: res:1280x960 hz:60 color_depth:8
+  mode 34: res:1280x1024 hz:75 color_depth:8
+  mode 35: res:1280x1024 hz:60 color_depth:8
+  mode 36: res:1344x756 hz:144 color_depth:8
+  mode 37: res:1344x756 hz:120 color_depth:8
+  mode 38: res:1344x756 hz:60 color_depth:8
+  mode 39: res:1344x1008 hz:144 color_depth:8
+  mode 40: res:1344x1008 hz:120 color_depth:8
+  mode 41: res:1344x1008 hz:60 color_depth:8
+  mode 42: res:1600x900 hz:144 color_depth:8
+  mode 43: res:1600x900 hz:120 color_depth:8
+  mode 44: res:1600x900 hz:60 color_depth:8
+  mode 45: res:1600x1200 hz:144 color_depth:8
+  mode 46: res:1600x1200 hz:120 color_depth:8
+  mode 47: res:1600x1200 hz:60 color_depth:8
+  mode 48: res:1920x1080 hz:144 color_depth:8
+  mode 49: res:1920x1080 hz:120 color_depth:8
+  mode 50: res:1920x1080 hz:60 color_depth:8
+  mode 51: res:1920x1080 hz:50 color_depth:8
+  mode 52: res:1920x1080 hz:50 color_depth:8 scaling:on
+  mode 53: res:2048x1152 hz:144 color_depth:8
+  mode 54: res:2048x1152 hz:120 color_depth:8
+  mode 55: res:2048x1152 hz:60 color_depth:8
+  mode 56: res:2560x1440 hz:144 color_depth:8 <-- current mode
+  mode 57: res:2560x1440 hz:120 color_depth:8
+  mode 58: res:2560x1440 hz:60 color_depth:8
+  mode 59: res:3840x2160 hz:60 color_depth:8
+  mode 60: res:3840x2160 hz:50 color_depth:8
+  mode 61: res:1024x768 hz:144 color_depth:8 scaling:on
+  mode 62: res:1024x768 hz:120 color_depth:8 scaling:on
+  mode 63: res:1024x768 hz:60 color_depth:8 scaling:on
+  mode 64: res:1280x960 hz:144 color_depth:8 scaling:on
+  mode 65: res:1280x960 hz:120 color_depth:8 scaling:on
+  mode 66: res:1280x960 hz:60 color_depth:8 scaling:on
+  mode 67: res:1344x756 hz:144 color_depth:8 scaling:on
+  mode 68: res:1344x756 hz:120 color_depth:8 scaling:on
+  mode 69: res:1344x756 hz:60 color_depth:8 scaling:on
+  mode 70: res:1344x1008 hz:144 color_depth:8 scaling:on
+  mode 71: res:1344x1008 hz:120 color_depth:8 scaling:on
+  mode 72: res:1344x1008 hz:60 color_depth:8 scaling:on
+  mode 73: res:1600x900 hz:144 color_depth:8 scaling:on
+  mode 74: res:1600x900 hz:120 color_depth:8 scaling:on
+  mode 75: res:1600x900 hz:60 color_depth:8 scaling:on
+  mode 76: res:1600x1200 hz:144 color_depth:8 scaling:on
+  mode 77: res:1600x1200 hz:120 color_depth:8 scaling:on
+  mode 78: res:1600x1200 hz:60 color_depth:8 scaling:on
+  mode 79: res:1920x1080 hz:144 color_depth:8 scaling:on
+  mode 80: res:1920x1080 hz:120 color_depth:8 scaling:on
+  mode 81: res:1920x1080 hz:60 color_depth:8 scaling:on
+  mode 82: res:2048x1152 hz:144 color_depth:8 scaling:on
+  mode 83: res:2048x1152 hz:120 color_depth:8 scaling:on
+  mode 84: res:2048x1152 hz:60 color_depth:8 scaling:on
+  mode 85: res:2560x1440 hz:144 color_depth:8 scaling:on
+  mode 86: res:2560x1440 hz:120 color_depth:8 scaling:on
+  mode 87: res:2560x1440 hz:75 color_depth:8 scaling:on
+  mode 88: res:2560x1440 hz:72 color_depth:8 scaling:on
+  mode 89: res:2560x1440 hz:70 color_depth:8 scaling:on
+  mode 90: res:2560x1440 hz:60 color_depth:8 scaling:on
+  mode 91: res:2560x1440 hz:56 color_depth:8 scaling:on
+  mode 92: res:2560x1440 hz:50 color_depth:8 scaling:on
+  mode 93: res:400x300 hz:144 color_depth:8 scaling:on
+  mode 94: res:400x300 hz:120 color_depth:8 scaling:on
+  mode 95: res:400x300 hz:120 color_depth:8 scaling:on
+  mode 96: res:400x300 hz:75 color_depth:8 scaling:on
+  mode 97: res:400x300 hz:72 color_depth:8 scaling:on
+  mode 98: res:400x300 hz:60 color_depth:8 scaling:on
+  mode 99: res:400x300 hz:60 color_depth:8 scaling:on
+  mode 100: res:400x300 hz:56 color_depth:8 scaling:on
+  mode 101: res:512x384 hz:144 color_depth:8 scaling:on
+  mode 102: res:512x384 hz:120 color_depth:8 scaling:on
+  mode 103: res:512x384 hz:120 color_depth:8 scaling:on
+  mode 104: res:512x384 hz:75 color_depth:8 scaling:on
+  mode 105: res:512x384 hz:70 color_depth:8 scaling:on
+  mode 106: res:512x384 hz:60 color_depth:8 scaling:on
+  mode 107: res:512x384 hz:60 color_depth:8 scaling:on
+  mode 108: res:640x360 hz:144 color_depth:8 scaling:on
+  mode 109: res:640x360 hz:120 color_depth:8 scaling:on
+  mode 110: res:640x360 hz:60 color_depth:8 scaling:on
+  mode 111: res:640x360 hz:60 color_depth:8 scaling:on
+  mode 112: res:640x360 hz:50 color_depth:8 scaling:on
+  mode 113: res:640x480 hz:144 color_depth:8 scaling:on
+  mode 114: res:640x480 hz:120 color_depth:8 scaling:on
+  mode 115: res:640x480 hz:60 color_depth:8 scaling:on
+  mode 116: res:640x480 hz:144 color_depth:8
+  mode 117: res:640x480 hz:120 color_depth:8
+  mode 118: res:640x480 hz:75 color_depth:8
+  mode 119: res:640x480 hz:72 color_depth:8
+  mode 120: res:640x480 hz:60 color_depth:8
+  mode 121: res:640x480 hz:60 color_depth:8
+  mode 122: res:640x512 hz:75 color_depth:8 scaling:on
+  mode 123: res:640x512 hz:60 color_depth:8 scaling:on
+  mode 124: res:672x378 hz:144 color_depth:8 scaling:on
+  mode 125: res:672x378 hz:120 color_depth:8 scaling:on
+  mode 126: res:672x378 hz:60 color_depth:8 scaling:on
+  mode 127: res:672x504 hz:144 color_depth:8 scaling:on
+  mode 128: res:672x504 hz:120 color_depth:8 scaling:on
+  mode 129: res:672x504 hz:60 color_depth:8 scaling:on
+  mode 130: res:720x480 hz:60 color_depth:8
+  mode 131: res:720x576 hz:50 color_depth:8
+  mode 132: res:800x450 hz:144 color_depth:8 scaling:on
+  mode 133: res:800x450 hz:120 color_depth:8 scaling:on
+  mode 134: res:800x450 hz:60 color_depth:8 scaling:on
+  mode 135: res:800x600 hz:120 color_depth:8
+  mode 136: res:800x600 hz:60 color_depth:8
+  mode 137: res:960x540 hz:120 color_depth:8 scaling:on
+  mode 138: res:960x540 hz:60 color_depth:8 scaling:on
+  mode 139: res:1024x768 hz:120 color_depth:8
+  mode 140: res:1024x768 hz:60 color_depth:8
+  mode 141: res:1280x720 hz:60 color_depth:8
+  mode 142: res:1920x1080 hz:60 color_depth:8 scaling:on
+  mode 143: res:1920x1080 hz:120 color_depth:8
+  mode 144: res:1920x1080 hz:60 color_depth:8
+
+Persistent screen id: 1E19A853-5FD8-412A-885E-F9B67C156241
+Contextual screen id: 2
+Serial screen id: s137639
+Type: 22 inch external screen
+Resolution: 1920x1080
+Hertz: 60
+Color Depth: 8
+Scaling: off
+Origin: (2560,360)
+Rotation: 0
+Enabled: true
+Resolutions for rotation 0:
+  mode 0: res:800x600 hz:75 color_depth:8
+  mode 1: res:800x600 hz:72 color_depth:8
+  mode 2: res:800x600 hz:60 color_depth:8
+  mode 3: res:800x600 hz:60 color_depth:8 scaling:on
+  mode 4: res:800x600 hz:56 color_depth:8
+  mode 5: res:840x525 hz:60 color_depth:8 scaling:on
+  mode 6: res:960x540 hz:60 color_depth:8 scaling:on
+  mode 7: res:960x540 hz:60 color_depth:8
+  mode 8: res:1024x576 hz:60 color_depth:8 scaling:on
+  mode 9: res:1024x576 hz:60 color_depth:8
+  mode 10: res:1024x768 hz:75 color_depth:8
+  mode 11: res:1024x768 hz:70 color_depth:8
+  mode 12: res:1024x768 hz:60 color_depth:8
+  mode 13: res:1152x864 hz:75 color_depth:8
+  mode 14: res:1280x720 hz:60 color_depth:8
+  mode 15: res:1280x960 hz:60 color_depth:8
+  mode 16: res:1280x1024 hz:75 color_depth:8
+  mode 17: res:1280x1024 hz:60 color_depth:8
+  mode 18: res:1344x756 hz:60 color_depth:8
+  mode 19: res:1344x1008 hz:60 color_depth:8
+  mode 20: res:1440x900 hz:60 color_depth:8
+  mode 21: res:1600x900 hz:60 color_depth:8
+  mode 22: res:1600x1200 hz:60 color_depth:8
+  mode 23: res:1680x1050 hz:60 color_depth:8
+  mode 24: res:1920x1080 hz:60 color_depth:8 <-- current mode
+  mode 25: res:1024x768 hz:60 color_depth:8 scaling:on
+  mode 26: res:1280x720 hz:60 color_depth:8 scaling:on
+  mode 27: res:1280x960 hz:60 color_depth:8 scaling:on
+  mode 28: res:1344x756 hz:60 color_depth:8 scaling:on
+  mode 29: res:1344x1008 hz:60 color_depth:8 scaling:on
+  mode 30: res:1600x900 hz:60 color_depth:8 scaling:on
+  mode 31: res:1600x1200 hz:60 color_depth:8 scaling:on
+  mode 32: res:1920x1080 hz:75 color_depth:8 scaling:on
+  mode 33: res:1920x1080 hz:72 color_depth:8 scaling:on
+  mode 34: res:1920x1080 hz:70 color_depth:8 scaling:on
+  mode 35: res:1920x1080 hz:60 color_depth:8 scaling:on
+  mode 36: res:1920x1080 hz:56 color_depth:8 scaling:on
+  mode 37: res:400x300 hz:75 color_depth:8 scaling:on
+  mode 38: res:400x300 hz:72 color_depth:8 scaling:on
+  mode 39: res:400x300 hz:60 color_depth:8 scaling:on
+  mode 40: res:400x300 hz:60 color_depth:8 scaling:on
+  mode 41: res:400x300 hz:56 color_depth:8 scaling:on
+  mode 42: res:512x384 hz:75 color_depth:8 scaling:on
+  mode 43: res:512x384 hz:70 color_depth:8 scaling:on
+  mode 44: res:512x384 hz:60 color_depth:8 scaling:on
+  mode 45: res:512x384 hz:60 color_depth:8 scaling:on
+  mode 46: res:576x432 hz:75 color_depth:8 scaling:on
+  mode 47: res:640x360 hz:60 color_depth:8 scaling:on
+  mode 48: res:640x360 hz:60 color_depth:8 scaling:on
+  mode 49: res:640x480 hz:60 color_depth:8 scaling:on
+  mode 50: res:640x480 hz:60 color_depth:8 scaling:on
+  mode 51: res:640x480 hz:75 color_depth:8
+  mode 52: res:640x480 hz:72 color_depth:8
+  mode 53: res:640x480 hz:60 color_depth:8
+  mode 54: res:640x480 hz:60 color_depth:8
+  mode 55: res:640x512 hz:75 color_depth:8 scaling:on
+  mode 56: res:640x512 hz:60 color_depth:8 scaling:on
+  mode 57: res:672x378 hz:60 color_depth:8 scaling:on
+  mode 58: res:672x504 hz:60 color_depth:8 scaling:on
+  mode 59: res:720x450 hz:60 color_depth:8 scaling:on
+  mode 60: res:800x450 hz:60 color_depth:8 scaling:on
+  mode 61: res:800x600 hz:60 color_depth:8
+  mode 62: res:1024x768 hz:60 color_depth:8
+  mode 63: res:1280x720 hz:60 color_depth:8
+  mode 64: res:1280x960 hz:60 color_depth:8
+
+Execute the command below to set your screens to the current arrangement. If screen ids are switching, please run `displayplacer --help` for info on using contextual or serial ids instead of persistent ids.
+
+displayplacer "id:0B524B77-F683-4945-8600-2E4830D3BC30 res:2560x1440 hz:144 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0" "id:1E19A853-5FD8-412A-885E-F9B67C156241 res:1920x1080 hz:60 color_depth:8 enabled:true scaling:off origin:(2560,360) degree:0"
+bash-5.3$ 
