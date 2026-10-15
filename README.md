@@ -33,9 +33,16 @@ cd "/Users/arehart/useful scripts/displaytools/app"
 ```
 
 `./build.sh` alone leaves the app in `app/build/`. The build copies
-`setdisplay.sh` into the bundle, so rerun it after editing the script. To have
+`setdisplay.sh` into the bundle, so rerun it after editing the script.
+`--install` also quits any running copy, deletes every other installed copy
+(for example a stale one in `/Applications`), and repoints the Login Item at
+the new build, so only one version of the app can ever be in use. To have
 the app start automatically, add it under System Settings → General → Login
 Items.
+
+The app resolves `displayplacer` once and passes the path to `setdisplay.sh`
+via the `DISPLAYPLACER` environment variable, so the menu bar app and the
+script can never disagree about which binary to run.
 
 ## Usage
 

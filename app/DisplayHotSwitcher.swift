@@ -7,13 +7,21 @@ struct Layout {
 
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private let appName = "Display Hot Switcher"
-    /// Apple Silicon Homebrew first, then Intel Homebrew. Matches setdisplay.sh.
+    /// Apple Silicon Homebrew first, then Intel Homebrew, then PATH. Matches
+    /// setdisplay.sh; the resolved path is handed to the script via the
+    /// DISPLAYPLACER env var so both sides always use the same binary.
     private let displayplacerCandidates = [
         "/opt/homebrew/bin/displayplacer",
         "/usr/local/bin/displayplacer",
     ]
     private var displayplacer: String? {
-        displayplacerCandidates.first { FileManager.default.isExecutableFile(atPath: $0) }
+        if let fixed = displayplacerCandidates.first(where: { FileManager.default.isExecutableFile(atPath: $0) }) {
+            return fixed
+        }
+        let path = ProcessInfo.processInfo.environment["PATH"] ?? ""
+        return path.split(separator: ":")
+            .map { "\($0)/displayplacer" }
+            .first { FileManager.default.isExecutableFile(atPath: $0) }
     }
     private let layouts = [
         Layout(command: "switch-to-27", title: "Mirror — Optimize for 27-inch"),
@@ -144,12 +152,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     // MARK: - Applying a layout
 
     @objc private func applyLayout(_ sender: NSMenuItem) {
-        guard let command = sender.representedObject as? String, let script = scriptPath, !isBusy else { return }
+        guard let command = sender.representedObject as? String, let script = scriptPath,
+              let displayplacer, !isBusy else { return }
         isBusy = true
         updateEnabledState()
 
         DispatchQueue.global(qos: .userInitiated).async { [self] in
-            let result = run("/bin/bash", [script, command, "--yes"])
+            let result = run("/bin/bash", [script, command, "--yes"], environment: ["DISPLAYPLACER": displayplacer])
             DispatchQueue.main.async {
                 self.isBusy = false
                 self.updateEnabledState()
@@ -187,10 +196,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         return line.dropFirst(prefix.count).trimmingCharacters(in: CharacterSet(charactersIn: "\"' "))
     }
 
-    private func run(_ executable: String, _ arguments: [String]) -> (status: Int32, output: String) {
+    private func run(_ executable: String, _ arguments: [String],
+                     environment extra: [String: String] = [:]) -> (status: Int32, output: String) {
         let process = Process()
         process.executableURL = URL(fileURLWithPath: executable)
         process.arguments = arguments
+        if !extra.isEmpty {
+            process.environment = ProcessInfo.processInfo.environment.merging(extra) { _, new in new }
+        }
         let pipe = Pipe()
         process.standardOutput = pipe
         process.standardError = pipe
