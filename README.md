@@ -4,11 +4,17 @@ Mirror the 22-inch and 27-inch external displays without extending the desktop.
 
 ## Requirements
 
-`displayplacer` must be installed at `/usr/local/bin/displayplacer`.
+`displayplacer` must be installed via Homebrew. Both the script and the menu
+bar app look for it at `/opt/homebrew/bin/displayplacer` (Apple Silicon
+Homebrew) first, then `/usr/local/bin/displayplacer` (Intel Homebrew), then
+anywhere on `PATH`.
 
 ```bash
 brew install displayplacer
 ```
+
+After switching Homebrew installs (for example Intel → Apple Silicon), rebuild
+and reinstall the menu bar app so it picks up the new binary location.
 
 ## Menu bar app
 
@@ -79,10 +85,11 @@ confirmation prompt, add `--yes`:
 ## Direct command
 
 To mirror the 27-inch display to the 22-inch display (22-inch stays the main
-screen) without the script:
+screen) without the script (substitute `/usr/local/bin/displayplacer` on
+Intel Homebrew):
 
 ```bash
-/usr/local/bin/displayplacer "id:1E19A853-5FD8-412A-885E-F9B67C156241+0B524B77-F683-4945-8600-2E4830D3BC30 res:1920x1080 hz:60 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0"
+/opt/homebrew/bin/displayplacer "id:1E19A853-5FD8-412A-885E-F9B67C156241+0B524B77-F683-4945-8600-2E4830D3BC30 res:1920x1080 hz:60 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0"
 ```
 
 The first id in the `+` set is the main ("Optimize for") screen; the second
@@ -90,7 +97,7 @@ id is its mirror. To return to two separate extended displays (this is what
 `extend-to-27` runs):
 
 ```bash
-/usr/local/bin/displayplacer "id:0B524B77-F683-4945-8600-2E4830D3BC30 res:2560x1440 hz:144 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0" "id:1E19A853-5FD8-412A-885E-F9B67C156241 res:1920x1080 hz:60 color_depth:8 enabled:true scaling:off origin:(2560,360) degree:0"
+/opt/homebrew/bin/displayplacer "id:0B524B77-F683-4945-8600-2E4830D3BC30 res:2560x1440 hz:144 color_depth:8 enabled:true scaling:off origin:(0,0) degree:0" "id:1E19A853-5FD8-412A-885E-F9B67C156241 res:1920x1080 hz:60 color_depth:8 enabled:true scaling:off origin:(2560,360) degree:0"
 ```
 
 If the 27-inch display rejects 144 Hz over its current cable, replace

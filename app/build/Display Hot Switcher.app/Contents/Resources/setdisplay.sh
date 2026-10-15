@@ -1,7 +1,16 @@
 #!/bin/bash
 set -euo pipefail
 
-DISPLAYPLACER="/usr/local/bin/displayplacer"
+# Prefer Apple Silicon Homebrew, then Intel Homebrew, then anything on PATH.
+find_displayplacer() {
+  local candidate
+  for candidate in /opt/homebrew/bin/displayplacer /usr/local/bin/displayplacer; do
+    [[ -x "$candidate" ]] && { printf '%s\n' "$candidate"; return 0; }
+  done
+  command -v displayplacer 2>/dev/null || true
+}
+
+DISPLAYPLACER="${DISPLAYPLACER:-$(find_displayplacer)}"
 MONITOR_27="0B524B77-F683-4945-8600-2E4830D3BC30"
 MONITOR_22="1E19A853-5FD8-412A-885E-F9B67C156241"
 
@@ -20,8 +29,8 @@ disconnected or disabled. It asks for confirmation unless --yes is supplied.
 EOF
 }
 
-[[ -x "$DISPLAYPLACER" ]] || {
-  printf 'displayplacer was not found at %s\n' "$DISPLAYPLACER" >&2
+[[ -n "$DISPLAYPLACER" && -x "$DISPLAYPLACER" ]] || {
+  printf 'displayplacer was not found in /opt/homebrew/bin, /usr/local/bin, or PATH; run: brew install displayplacer\n' >&2
   exit 1
 }
 

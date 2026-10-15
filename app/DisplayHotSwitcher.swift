@@ -7,7 +7,14 @@ struct Layout {
 
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private let appName = "Display Hot Switcher"
-    private let displayplacer = "/usr/local/bin/displayplacer"
+    /// Apple Silicon Homebrew first, then Intel Homebrew. Matches setdisplay.sh.
+    private let displayplacerCandidates = [
+        "/opt/homebrew/bin/displayplacer",
+        "/usr/local/bin/displayplacer",
+    ]
+    private var displayplacer: String? {
+        displayplacerCandidates.first { FileManager.default.isExecutableFile(atPath: $0) }
+    }
     private let layouts = [
         Layout(command: "switch-to-27", title: "Mirror — Optimize for 27-inch"),
         Layout(command: "switch-to-22", title: "Mirror — Optimize for 22-inch"),
@@ -89,7 +96,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         if scriptPath == nil {
             return "setdisplay.sh is missing from the app bundle"
         }
-        if !FileManager.default.isExecutableFile(atPath: displayplacer) {
+        if displayplacer == nil {
             return "displayplacer not found — brew install displayplacer"
         }
         return nil
@@ -100,7 +107,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     /// Reads the current arrangement from `displayplacer list` and check-marks
     /// whichever layout(s) produce it.
     private func refreshActiveLayout() {
-        guard preflightProblem() == nil else {
+        guard preflightProblem() == nil, let displayplacer else {
             updateEnabledState()
             return
         }
